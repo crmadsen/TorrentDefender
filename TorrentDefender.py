@@ -139,44 +139,6 @@ class MyGUI(QtGui.QMainWindow, Ui_MainWindow):
             time.sleep(0.5)
             QtGui.qApp.processEvents()
 
-
-    # # find tunnel and verify up/down status
-    # try:
-    #     task = subprocess.check_output("pstree | grep %s" % torrentClient, shell=True).splitlines()
-    # except subprocess.CalledProcessError:
-    #     task = ''
-
-    # if enable == 1 and not any('tun' in t for t in output) and any(torrentClient in q for q in task):
-    #     enable = 0
-    #     os.system('ifconfig %s down' % interface)
-
-    #     try:
-    #         subprocess.call("pkill -f %s" % torrentClient, shell=True)
-    #     except OSError:
-    #         print('Unable to kill torrent client...')
-
-    #     # Pause to kill process
-    #     time.sleep(5)
-
-    #     try:
-    #         rtn = subprocess.check_output("pstree | grep %s" % torrentClient, shell=True).splitlines()
-    #     except subprocess.CalledProcessError:
-    #         rtn = 0
-
-    #     if rtn == 0 and enable == 0:
-    #         print('Torrent client down, reenabling connection...')
-    #         os.system('ifconfig %s up' % interface)
-    #         os.system('ifconfig lo up')
-    #         enable = 1
-
-    #     elif not any(torrentClient in q for q in task) and enable == 0:
-    #         print('No torrent client found, reenabling connection...')
-    #         os.system('ifconfig %s up' % interface)
-    #         os.system('ifconfig lo up')
-    #         enable = 1
-
-    # return
-
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     window = MyGUI()
